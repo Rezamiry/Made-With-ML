@@ -112,6 +112,7 @@ def get_best_run_id(experiment_name: str = "", metric: str = "", mode: str = "")
     """
     sorted_runs = mlflow.search_runs(
         experiment_names=[experiment_name],
+        # search_all_experiments=True,
         order_by=[f"metrics.{metric} {mode}"],
     )
     run_id = sorted_runs.iloc[0].run_id

@@ -1,0 +1,50 @@
+{
+  "timestamp": "April 14, 2024 08:02:14 PM",
+  "run_id": "eabdaa85a91140f1bfcbf9d2116253c2",
+  "overall": {
+    "precision": 0.9145795763040528,
+    "recall": 0.8952879581151832,
+    "f1": 0.9009148638650388,
+    "num_samples": 191.0
+  },
+  "per_class": {
+    "other": {
+      "precision": 0.9259259259259259,
+      "recall": 0.9615384615384616,
+      "f1": 0.9433962264150944,
+      "num_samples": 26.0
+    },
+    "computer-vision": {
+      "precision": 0.984375,
+      "recall": 0.8873239436619719,
+      "f1": 0.9333333333333333,
+      "num_samples": 71.0
+    },
+    "natural-language-processing": {
+      "precision": 0.92,
+      "recall": 0.8846153846153846,
+      "f1": 0.9019607843137256,
+      "num_samples": 78.0
+    },
+    "mlops": {
+      "precision": 0.56,
+      "recall": 0.875,
+      "f1": 0.6829268292682927,
+      "num_samples": 16.0
+    }
+  },
+  "slices": {
+    "nlp_llm": {
+      "precision": 0.8928571428571429,
+      "recall": 0.8928571428571429,
+      "f1": 0.8928571428571429,
+      "num_samples": 28
+    },
+    "short_text": {
+      "precision": 0.8571428571428571,
+      "recall": 0.8571428571428571,
+      "f1": 0.8571428571428571,
+      "num_samples": 7
+    }
+  }
+}

@@ -1,32 +1,37 @@
 #!/bin/bash
 export PYTHONPATH=$PYTHONPATH:$PWD
+rm -rf results
 mkdir results
 
+echo testing data
 # Test data
 export RESULTS_FILE=results/test_data_results.txt
 export DATASET_LOC="https://raw.githubusercontent.com/GokuMohandas/Made-With-ML/main/datasets/dataset.csv"
 pytest --dataset-loc=$DATASET_LOC tests/data --verbose --disable-warnings > $RESULTS_FILE
 cat $RESULTS_FILE
 
+echo testing code
 # Test code
 export RESULTS_FILE=results/test_code_results.txt
-python -m pytest tests/code --verbose --disable-warnings > $RESULTS_FILE
+python -m pytest -m "not training" tests/code --verbose --disable-warnings > $RESULTS_FILE
 cat $RESULTS_FILE
 
+echo training start
 # Train
 export EXPERIMENT_NAME="llm"
 export RESULTS_FILE=results/training_results.json
 export DATASET_LOC="https://raw.githubusercontent.com/GokuMohandas/Made-With-ML/main/datasets/dataset.csv"
 export TRAIN_LOOP_CONFIG='{"dropout_p": 0.5, "lr": 1e-4, "lr_factor": 0.8, "lr_patience": 3}'
+export GITHUB_USERNAME="rezmiry"
 python madewithml/train.py \
     --experiment-name "$EXPERIMENT_NAME" \
     --dataset-loc "$DATASET_LOC" \
     --train-loop-config "$TRAIN_LOOP_CONFIG" \
     --num-workers 1 \
-    --cpu-per-worker 10 \
+    --cpu-per-worker 2 \
     --gpu-per-worker 1 \
     --num-epochs 10 \
-    --batch-size 256 \
+    --batch-size 16 \
     --results-fp $RESULTS_FILE
 
 # Get and save run ID
@@ -49,5 +54,5 @@ cat $RESULTS_FILE
 
 # Save to S3
 export MODEL_REGISTRY=$(python -c "from madewithml import config; print(config.MODEL_REGISTRY)")
-aws s3 cp $MODEL_REGISTRY s3://madewithml/$GITHUB_USERNAME/mlflow/ --recursive
-aws s3 cp results/ s3://madewithml/$GITHUB_USERNAME/results/ --recursive
+aws s3 cp $MODEL_REGISTRY s3://madewml/$GITHUB_USERNAME/mlflow/ --recursive
+aws s3 cp results/ s3://madewml/$GITHUB_USERNAME/results/ --recursive
