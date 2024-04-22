@@ -28,9 +28,9 @@ python madewithml/train.py \
     --dataset-loc "$DATASET_LOC" \
     --train-loop-config "$TRAIN_LOOP_CONFIG" \
     --num-workers 1 \
-    --cpu-per-worker 2 \
-    --gpu-per-worker 1 \
-    --num-epochs 10 \
+    --cpu-per-worker 1 \
+    --gpu-per-worker 0 \
+    --num-epochs 1 \
     --batch-size 16 \
     --results-fp $RESULTS_FILE
 
