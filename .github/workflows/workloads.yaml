@@ -15,9 +15,13 @@ jobs:
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v2
         with:
-          role-to-assume: arn:aws:iam::593241322649:role/github-actions-madewithml
-          role-session-name: s3access
-          aws-region: us-west-2
+          role-to-assume: arn:aws:iam::697830344472:role/GitHubAction-AssumeRoleWithAction
+          role-session-name: GitHub_to_AWS_via_FederatedOIDC
+          aws-region: us-east-1
+
+      - name: Sts GetCallerIdentity
+        run: |
+          aws sts get-caller-identity
 
       # Set up dependencies
       - uses: actions/checkout@v3
