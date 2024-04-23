@@ -257,5 +257,5 @@ def train_model(
 if __name__ == "__main__":  # pragma: no cover, application
     if ray.is_initialized():
         ray.shutdown()
-    ray.init(runtime_env={"env_vars": {"GITHUB_USERNAME": os.environ["GITHUB_USERNAME"]}})
+    ray.init(runtime_env={"env_vars": {"GITHUB_USERNAME": os.environ["GITHUB_USERNAME"]}}, num_gpus=1)
     app()

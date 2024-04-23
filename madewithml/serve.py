@@ -19,7 +19,7 @@ app = FastAPI(
 )
 
 
-@serve.deployment(num_replicas="1", ray_actor_options={"num_cpus": 8, "num_gpus": 0})
+@serve.deployment(num_replicas="1", ray_actor_options={"num_cpus": 2, "num_gpus": 1})
 @serve.ingress(app)
 class ModelDeployment:
     def __init__(self, run_id: str, threshold: int = 0.9):
@@ -72,5 +72,5 @@ if __name__ == "__main__":
     parser.add_argument("--run_id", help="run ID to use for serving.")
     parser.add_argument("--threshold", type=float, default=0.9, help="threshold for `other` class.")
     args = parser.parse_args()
-    ray.init(runtime_env={"env_vars": {"GITHUB_USERNAME": os.environ["GITHUB_USERNAME"]}})
+    ray.init(runtime_env={"env_vars": {"GITHUB_USERNAME": os.environ["GITHUB_USERNAME"]}}, num_gpus=1)
     serve.run(ModelDeployment.bind(run_id=args.run_id, threshold=args.threshold))

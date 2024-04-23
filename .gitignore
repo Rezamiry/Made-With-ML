@@ -1,3 +1,11 @@
+bin/*
+
+.s3cred
+aws/*
+awscliv2.zip
+
+/notebooks/scibert_*
+
 # Data
 logs/
 stores/

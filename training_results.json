@@ -1,0 +1,66 @@
+{
+  "timestamp": "April 14, 2024 08:01:42 PM",
+  "run_id": "eabdaa85a91140f1bfcbf9d2116253c2",
+  "params": {
+    "dropout_p": 0.5,
+    "lr": 0.0001,
+    "lr_factor": 0.8,
+    "lr_patience": 3,
+    "num_samples": null,
+    "num_epochs": 10,
+    "batch_size": 16,
+    "num_classes": 4
+  },
+  "metrics": [
+    {
+      "epoch": 0,
+      "train_loss": 0.4525870184103647,
+      "val_loss": 0.2545199543237686
+    },
+    {
+      "epoch": 1,
+      "train_loss": 0.23423064652925885,
+      "val_loss": 0.175417697429657
+    },
+    {
+      "epoch": 2,
+      "train_loss": 0.14913648553192616,
+      "val_loss": 0.15105530843138693
+    },
+    {
+      "epoch": 3,
+      "train_loss": 0.11628278726950668,
+      "val_loss": 0.1710004661232233
+    },
+    {
+      "epoch": 4,
+      "train_loss": 0.06539560947567225,
+      "val_loss": 0.2317451324313879
+    },
+    {
+      "epoch": 5,
+      "train_loss": 0.08480661878219017,
+      "val_loss": 0.2805339120328426
+    },
+    {
+      "epoch": 6,
+      "train_loss": 0.12399751248841101,
+      "val_loss": 0.2594397809356451
+    },
+    {
+      "epoch": 7,
+      "train_loss": 0.07619946192090327,
+      "val_loss": 0.2239690711721778
+    },
+    {
+      "epoch": 8,
+      "train_loss": 0.09945887957627957,
+      "val_loss": 0.35304099768400193
+    },
+    {
+      "epoch": 9,
+      "train_loss": 0.214251574415427,
+      "val_loss": 0.24142839796841148
+    }
+  ]
+}

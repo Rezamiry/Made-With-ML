@@ -1,0 +1,25 @@
+============================= test session starts ==============================
+platform linux -- Python 3.10.11, pytest-7.3.1, pluggy-1.4.0 -- /home/rmiry/miniconda3/envs/madewml/bin/python
+cachedir: .pytest_cache
+rootdir: /home/rmiry/mlops/madewithml
+configfile: pyproject.toml
+plugins: cov-4.0.0, anyio-4.3.0
+collecting ... collected 17 items / 2 deselected / 15 selected
+
+tests/code/test_data.py::test_load_data PASSED                           [  6%]
+tests/code/test_data.py::test_stratify_split PASSED                      [ 13%]
+tests/code/test_data.py::test_clean_text[hi-sw0-hi] PASSED               [ 20%]
+tests/code/test_data.py::test_clean_text[hi you-sw1-hi] PASSED           [ 26%]
+tests/code/test_data.py::test_clean_text[hi yous-sw2-hi yous] PASSED     [ 33%]
+tests/code/test_data.py::test_preprocess PASSED                          [ 40%]
+tests/code/test_data.py::test_fit_transform PASSED                       [ 46%]
+tests/code/test_predict.py::test_decode PASSED                           [ 53%]
+tests/code/test_predict.py::test_format_prob PASSED                      [ 60%]
+tests/code/test_utils.py::test_set_seed PASSED                           [ 66%]
+tests/code/test_utils.py::test_save_and_load_dict PASSED                 [ 73%]
+tests/code/test_utils.py::test_pad_array PASSED                          [ 80%]
+tests/code/test_utils.py::test_collate_fn PASSED                         [ 86%]
+tests/code/test_utils.py::test_dict_to_list[d0-keys0-list0] PASSED       [ 93%]
+tests/code/test_utils.py::test_dict_to_list[d1-keys1-list1] PASSED       [100%]
+
+================ 15 passed, 2 deselected, 61 warnings in 12.34s ================
